@@ -29,8 +29,7 @@ class sntMail(ndb.Model):
    date_sent = ndb.DateTimeProperty(auto_now_add=True)
 
 # [START config]
-MAILGUN_DOMAIN_NAME = 'mail.amberleachurch.ca'
-MAILGUN_API_KEY = 'key-dc56bd02d2525e84ccf9093a6b3e6774'
+import MailGunKey.py
 # [END config]
 
 def isDuplicate(stTo, stSubject):
