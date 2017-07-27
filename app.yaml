@@ -1,0 +1,31 @@
+#application: amberleabulkmail
+#version: dev
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /_ah/mail/.+
+  script: receivemail.application
+  login: admin
+
+- url: /_ah/queue/.+
+  script: firemailgun.application
+  login: admin
+
+- url: /tasks/clean_sntMail
+  script: purgeSntLogs.application
+
+libraries:
+- name: webapp2
+  version: "latest"
+- name: ssl
+  version: "latest"
+- name: pycrypto
+  version: "latest"
+
+env_variables:
+  GAE_USE_SOCKETS_HTTPLIB : 'anyvalue'
+
+inbound_services:
+- mail

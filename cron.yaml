@@ -1,0 +1,4 @@
+cron:
+- description: "daily datastore cleaner"
+  url: /tasks/clean_sntMail
+  schedule: every day 02:00
